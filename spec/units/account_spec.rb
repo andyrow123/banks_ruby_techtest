@@ -18,13 +18,18 @@ describe Account do
     it 'should add credit amount to the balance' do
       expect { subject.credit(10) }.to change { subject.balance }.by 10
     end
+
+    it 'should raise error if given a negative amount' do
+      expect { subject.credit(-10) }.to raise_error('Amount can not be below zero')
+    end
   end
 
   context '#debit' do
     it { is_expected.to respond_to(:debit).with(1).argument }
 
-    it 'should add debit amount from the balance' do
+    it 'should subtract debit amount from the balance' do
       expect { subject.debit(10) }.to change { subject.balance }.by(-10)
     end
+
   end
 end

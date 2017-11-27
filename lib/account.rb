@@ -7,10 +7,17 @@ class Account
   end
 
   def credit(amount)
+    fail 'Amount can not be below zero' if below_zero?(amount)
     @balance += amount
   end
 
   def debit(amount)
     @balance -= amount
+  end
+
+  private
+
+  def below_zero?(amount)
+    amount < 0
   end
 end
