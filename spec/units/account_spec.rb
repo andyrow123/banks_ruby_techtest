@@ -22,6 +22,11 @@ describe Account do
       expect { subject.credit(transaction_1) }.to change { subject.balance }.by 10
     end
 
+    it 'should add transaction to transactions when crediting account' do
+      subject.credit(transaction_1)
+      expect(subject.transactions).to include(transaction_1)
+    end
+
     it 'should raise error if given a negative amount' do
       expect { subject.credit(transaction_invalid) }.to raise_error('Amount can not be below zero')
     end

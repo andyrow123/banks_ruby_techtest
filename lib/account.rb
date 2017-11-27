@@ -8,6 +8,7 @@ class Account
 
   def credit(transaction)
     fail 'Amount can not be below zero' if below_zero?(transaction.amount)
+    @transactions.push(transaction)
     @balance += transaction.amount
   end
 
