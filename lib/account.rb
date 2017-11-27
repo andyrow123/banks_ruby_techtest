@@ -12,6 +12,7 @@ class Account
   end
 
   def debit(amount)
+    fail 'Amount can not be below zero' if below_zero?(amount)
     @balance -= amount
   end
 

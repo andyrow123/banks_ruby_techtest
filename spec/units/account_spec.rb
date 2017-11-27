@@ -31,5 +31,9 @@ describe Account do
       expect { subject.debit(10) }.to change { subject.balance }.by(-10)
     end
 
+    it 'should raise error if given a negative amount' do
+      expect { subject.debit(-10) }.to raise_error('Amount can not be below zero')
+    end
+
   end
 end
