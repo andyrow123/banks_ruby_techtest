@@ -6,9 +6,9 @@ class Account
     @transactions = []
   end
 
-  def credit(amount)
-    fail 'Amount can not be below zero' if below_zero?(amount)
-    @balance += amount
+  def credit(transaction)
+    fail 'Amount can not be below zero' if below_zero?(transaction.amount)
+    @balance += transaction.amount
   end
 
   def debit(amount)

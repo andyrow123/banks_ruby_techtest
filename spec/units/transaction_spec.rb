@@ -21,5 +21,9 @@ describe Transaction do
     it 'should initialize with an amount' do
       expect(@transaction.amount).to eq 10
     end
+
+    it 'should raise error if amount is 0' do
+      expect { Transaction.new(:credit, 0) }.to raise_error 'Transaction must be more than 0'
+    end
   end
 end

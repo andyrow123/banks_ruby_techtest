@@ -2,6 +2,9 @@ require_relative '../../lib/account.rb'
 
 describe Account do
 
+  let(:transaction_1) { double :transaction, amount: 10 }
+  let(:transaction_invalid) { double :transaction, amount: -10 }
+
   it 'should initialize with a empty transactions array' do
     expect(subject.transactions).to be_empty
   end
@@ -16,11 +19,11 @@ describe Account do
     it { is_expected.to respond_to(:credit).with(1).argument }
 
     it 'should add credit amount to the balance' do
-      expect { subject.credit(10) }.to change { subject.balance }.by 10
+      expect { subject.credit(transaction_1) }.to change { subject.balance }.by 10
     end
 
     it 'should raise error if given a negative amount' do
-      expect { subject.credit(-10) }.to raise_error('Amount can not be below zero')
+      expect { subject.credit(transaction_invalid) }.to raise_error('Amount can not be below zero')
     end
   end
 
