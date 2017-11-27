@@ -11,9 +11,9 @@ class Account
     @balance += transaction.amount
   end
 
-  def debit(amount)
-    fail 'Amount can not be below zero' if below_zero?(amount)
-    @balance -= amount
+  def debit(transaction)
+    fail 'Amount can not be below zero' if below_zero?(transaction.amount)
+    @balance -= transaction.amount
   end
 
   private

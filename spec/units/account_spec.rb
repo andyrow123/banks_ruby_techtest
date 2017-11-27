@@ -31,11 +31,11 @@ describe Account do
     it { is_expected.to respond_to(:debit).with(1).argument }
 
     it 'should subtract debit amount from the balance' do
-      expect { subject.debit(10) }.to change { subject.balance }.by(-10)
+      expect { subject.debit(transaction_1) }.to change { subject.balance }.by(-10)
     end
 
     it 'should raise error if given a negative amount' do
-      expect { subject.debit(-10) }.to raise_error('Amount can not be below zero')
+      expect { subject.debit(transaction_invalid) }.to raise_error('Amount can not be below zero')
     end
 
   end

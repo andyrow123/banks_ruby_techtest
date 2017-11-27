@@ -15,7 +15,7 @@ describe Transaction do
     end
 
     it 'should raise error if type is invalid' do
-      expect { Transaction.new(:test_invalid, 10) }.to raise_error 'Invalid transaction type'
+      expect { Transaction.new(:invalid, 10) }.to raise_error 'Invalid transaction type'
     end
 
     it 'should initialize with an amount' do
