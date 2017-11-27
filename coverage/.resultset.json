@@ -1,0 +1,27 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/austinrowsell/projects/Makers_Academy/full_time/week10/week_challenges/bank_ruby/spec/units/account_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/austinrowsell/projects/Makers_Academy/full_time/week10/week_challenges/bank_ruby/lib/account.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1511789710
+  }
+}
