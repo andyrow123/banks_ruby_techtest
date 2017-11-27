@@ -10,6 +10,6 @@ class Account
   end
 
   def debit(amount)
-
+    @balance -= amount
   end
 end

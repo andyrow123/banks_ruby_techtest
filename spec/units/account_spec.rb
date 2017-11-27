@@ -17,5 +17,9 @@ describe Account do
 
   context '#debit' do
     it { is_expected.to respond_to(:debit).with(1).argument }
+
+    it 'should add debit amount from the balance' do
+      expect { subject.debit(10) }.to change { subject.balance }.by(-10)
+    end
   end
 end
