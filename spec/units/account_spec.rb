@@ -15,32 +15,32 @@ describe Account do
     end
   end
 
-  context '#credit' do
-    it { is_expected.to respond_to(:credit).with(1).argument }
+  context '#deposit' do
+    it { is_expected.to respond_to(:deposit).with(1).argument }
 
-    it 'should add credit amount to the balance' do
-      expect { subject.credit(transaction_1) }.to change { subject.balance }.by 10
+    it 'should add amount to the balance' do
+      expect { subject.deposit(transaction_1) }.to change { subject.balance }.by 10
     end
 
-    it 'should add transaction to transactions when crediting account' do
-      subject.credit(transaction_1)
+    it 'should add transaction to transactions when depositing into account' do
+      subject.deposit(transaction_1)
       expect(subject.transactions).to include(transaction_1)
     end
 
     it 'should raise error if given a negative amount' do
-      expect { subject.credit(transaction_invalid) }.to raise_error('Amount can not be below zero')
+      expect { subject.deposit(transaction_invalid) }.to raise_error('Amount can not be below zero')
     end
   end
 
-  context '#debit' do
-    it { is_expected.to respond_to(:debit).with(1).argument }
+  context '#withdraw' do
+    it { is_expected.to respond_to(:withdraw).with(1).argument }
 
-    it 'should subtract debit amount from the balance' do
-      expect { subject.debit(transaction_1) }.to change { subject.balance }.by(-10)
+    it 'should subtract amount from the balance' do
+      expect { subject.withdraw(transaction_1) }.to change { subject.balance }.by(-10)
     end
 
     it 'should raise error if given a negative amount' do
-      expect { subject.debit(transaction_invalid) }.to raise_error('Amount can not be below zero')
+      expect { subject.withdraw(transaction_invalid) }.to raise_error('Amount can not be below zero')
     end
 
   end

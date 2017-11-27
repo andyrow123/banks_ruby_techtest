@@ -6,13 +6,13 @@ class Account
     @transactions = []
   end
 
-  def credit(transaction)
+  def deposit(transaction)
     fail 'Amount can not be below zero' if below_zero?(transaction.amount)
     @transactions.push(transaction)
     @balance += transaction.amount
   end
 
-  def debit(transaction)
+  def withdraw(transaction)
     fail 'Amount can not be below zero' if below_zero?(transaction.amount)
     @balance -= transaction.amount
   end
