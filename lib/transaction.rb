@@ -1,7 +1,8 @@
 class Transaction
-  attr_reader :date
+  attr_reader :date, :type
 
-  def initialize
+  def initialize(type)
     @date = Date.new
+    @type = type
   end
 end
