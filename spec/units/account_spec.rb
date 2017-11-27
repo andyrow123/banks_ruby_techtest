@@ -7,8 +7,15 @@ describe Account do
     end
   end
 
-  context '#deposit' do
-    it { is_expected.to respond_to(:deposit).with(1).argument }
+  context '#credit' do
+    it { is_expected.to respond_to(:credit).with(1).argument }
 
+    it 'should add credit amount to the balance' do
+      expect { subject.credit(10) }.to change { subject.balance }.by 10
+    end
+  end
+
+  context '#debit' do
+    it { is_expected.to respond_to(:debit).with(1).argument }
   end
 end
