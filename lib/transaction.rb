@@ -1,10 +1,11 @@
 class Transaction
-  attr_reader :date, :type
+  attr_reader :date, :type, :amount
 
-  def initialize(type)
+  def initialize(type, amount)
     @date = Date.new
     fail 'Invalid transaction type' unless valid_type?(type)
     @type = type
+    @amount = amount
   end
 
   private
